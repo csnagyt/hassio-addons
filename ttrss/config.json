@@ -1,0 +1,46 @@
+{
+  "name": "tt-rss",
+  "version": "0.10.4",
+  "slug": "ttrss",
+  "description": "Tiny-rss add-on based on the prebuilt docker image from lunik1",
+  "url": "https://github.com/lbouriez/hassio-addons",
+  "startup": "services",
+  "legacy": true,
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7"
+  ],
+  "image": "ghcr.io/lbouriez/addon-tt-rss/{arch}",
+  "ports": {
+    "80/tcp": 32790
+  },
+  "ports_description": {
+    "80/tcp": "Web UI"
+  },
+  "map": [],
+  "webui": "http://[HOST]:[PORT:32790]",
+  "environment": {
+    "PUID": "100",
+    "PGID": "100"
+  },
+  "options": {
+    "TTRSS_DB_TYPE": "mysql",
+    "TTRSS_DB_HOST": "homeassistant",
+    "TTRSS_DB_USER": "tinyrss",
+    "TTRSS_DB_NAME": "tinyrss",
+    "TTRSS_DB_PASS": "tinyrss",
+    "TTRSS_DB_PORT": 3306,
+    "TTRSS_SELF_URL_PATH": "https://your-url-to-access.ttrss/"
+  },
+  "schema": {
+    "TTRSS_DB_TYPE": "match(^(mysql|postgresql)$)?",
+    "TTRSS_DB_HOST": "str",
+    "TTRSS_DB_USER": "str",
+    "TTRSS_DB_NAME": "str",
+    "TTRSS_DB_PASS": "password",
+    "TTRSS_DB_PORT": "port",
+    "TTRSS_SELF_URL_PATH": "url",
+    "log_level": "list(trace|debug|info|notice|warning|error|fatal)?"
+  }
+}
