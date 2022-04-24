@@ -9,7 +9,7 @@ backup_exclude:
 description: Recorded media, live TV, online news, and podcasts ready to stream.
 full_access: true
 hassio_api: true
-image: ghcr.io/lbouriez/addon-plex/{arch}
+image: ghcr.io/csnagyt/addon-plex/{arch}
 map:
 - media:rw
 - share:rw
